@@ -1,0 +1,44 @@
+<style>
+  .inputForm {
+    width: 300px;
+    margin: 0 auto;
+  }
+</style>
+
+<form class="inputForm" (ngSubmit)="onSubmit()" #calcForm="ngForm" *ngIf="results == 0">
+  <div class="form-group">
+    <label for="num1">First Number</label>
+    <input type="number" class="form-control" id="num1" required [(ngModel)]="num1" name="num1">
+  </div>
+  <div class="form-group">
+    <label for="num2">Second Number</label>
+    <input type="number" class="form-control" id="num2" required [(ngModel)]="num2" name="num2" >
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" required [(ngModel)]="add" name="addition" id="add" value="option1" checked>
+    <label class="form-check-label" for="add">
+      Add
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" required [(ngModel)]="subtract" name="subtract" id="subtract" value="option2">
+    <label class="form-check-label" for="subtract">
+      Subtract
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" required [(ngModel)]="multiply" name="multiply" id="multiply" value="option3">
+    <label class="form-check-label" for="multiply">
+      Multiply
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" required [(ngModel)]="divide" name="divide" id="divide" value="option4">
+    <label class="form-check-label" for="divide">
+      Divide
+    </label>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<app-view-results *ngIf="results" [results]="results" [msg]="msg"></app-view-results>
